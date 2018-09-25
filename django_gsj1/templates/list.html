@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>现金表</title>
+    <style type="text/css">
+    </style>
+</head>
+<body>
+    <h1 align="center">存蓄现金表</h1>
+    <table><tr>
+{#        <th>id</th>#}
+        <th>name</th>
+        <th>accout</th>
+        <th>saving</th>
+        <th>expend</th>
+        <th>income</th>
+        <th>desc</th>
+    </tr>
+    {%for t in trades %}
+    <tr>
+{#        <td>{{t.id}}</td>#}
+        <td>{{t.name}}</td>
+        <td>{{t.account}}</td>
+        <td>{{t.saving}}</td>
+        <td>{{t.expend}}</td>
+        <td>{{t.income}}</td>
+        <td>{{t.desc}}</td>
+    </tr>
+    {%endfor%}
+
+    </table>
+</body>
+</html>
