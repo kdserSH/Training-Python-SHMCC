@@ -1,0 +1,50 @@
+import paramiko,socket,threading,multiprocessing
+paramiko.util.log_to_file('ssh.log')
+def ssh_command(ip,user,passwd,command):
+    NE40=paramiko.SSHClient()
+    NE40.load_system_host_keys()
+    NE40.set_missing_host_key_policy(paramiko.AutoAddPolicy)  #自动添加和保存ssh密钥
+    try:
+        NE40.connect(ip,username = user,password = passwd,look_for_keys = False)
+    except paramiko.AuthenticationException:
+        print('Auth Failed')
+    except socket.error:
+        print('server is unreachable')
+    else:
+        stdin, stdout, stderr = NE40.exec_command(command)
+        out=stdout.read()
+        print(out.decode())
+        dict1 = {'10.222.11.77': 'SHJQ-QJ-CE3',
+                 '10.222.11.78': 'SHJQ-QJ-CE4',
+                 '10.222.11.244': 'SHCM-QJ-CE9 ',
+                 '10.222.11.245': 'SHCM-QJ-CE10',
+                 '10.222.27.36': 'SHQZ-QJ-CE1',
+                 '10.222.27.37': 'SHQZ-QJ-CE2',
+                 '10.222.18.93': 'SHWR-QJ-CE5',
+                 '10.222.18.94': 'SHWR-QJ-CE6',
+                 '10.222.25.21': 'SHPD-QJ-CE7',
+                 '10.222.25.22': 'SHPD-QJ-CE8'}
+        outputfile = open(dict1[ip]+'.txt', 'w')
+        print(out.decode(),file=outputfile)
+    finally:
+        NE40.close()
+
+if __name__ == '__main__':
+    user = 'gongsijie'  #用户名
+    passwd = 'Iamgsj@150' #密码
+    command = 'dis alarm all' #NE40指令
+    threads = []
+    print('Starting......')
+    iplist = ['10.222.11.77',
+            '10.222.11.78',
+            '10.222.11.244',
+            '10.222.11.245',
+            '10.222.27.36',
+            '10.222.27.37',
+            '10.222.18.93',
+            '10.222.18.94',
+            '10.222.25.21',
+            '10.222.25.22'] #设备IP列表
+    for i in iplist:
+        a = threading.Thread(target=ssh_command,args=(i,user,passwd,command))
+        a.start()
