@@ -30,9 +30,9 @@ def ssh_command(ip,user,passwd,command):
         NE40.close()
 
 if __name__ == '__main__':
-    user = 'gongsijie'  #用户名
-    passwd = 'Iamgsj@150' #密码
-    command = 'dis alarm all' #NE40指令
+    user = '*******'  #用户名
+    passwd = '*******' #密码
+    command = '*******' #NE40指令
     threads = []
     print('Starting......')
     iplist = ['10.222.11.77',
