@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static "/css/index.css"%}" />
+{#    {% load staticfiles %}#}
+    <script src="{% static "/js/jquery-3.1.1.min.js"%}"></script>
+    <script type="text/javascript">
+        document.onkeydown=function()
+		{
+			if(event.keyCode==13)
+			{
+				document.getElementById("btn").click();
+			}
+		}
+		$(document).ready(function() {
+			var startPos = $("#roll").offset().top;
+			$.event.add(window, "scroll", function () {
+				var p = $(window).scrollTop();
+				$("#unroll").css('box-shadow', ((p) > startPos) ? '0 0 8px #888' : '0 0 0 #888');
+			});
+		});
+    </script>
+</head>
+<body>
+    <div class="unroll" id="unroll">
+{#        {% load staticfiles %}#}
+        <img src="{% static "/images/title.JPG"%}" class="timg" height=50px/>
+        <div class="bar1">
+            <form action="/srh/" method="get">{% csrf_token %}
+                <select id="ne" name="ne">
+{#                    <option value="SHWR-QJ05-HWNE40E">万荣QJ05</option>#}
+{#                    <option value="SHQZ-QJ01-HWNE40E">钦州QJ01</option>#}
+{#                    <option value="SHQZ-QJ02-HWNE40E">钦州QJ02</option>#}
+{#                    <option value="SHJQ-QJ03-HWNE40E">金桥QJ03</option>#}
+{#                    <option value="SHJQ-QJ04-HWNE40E">金桥QJ04</option>#}
+{#                    <option value="SHWR-QJ06-HWNE40E">万荣QJ06</option>#}
+{#                    <option value="SHPD-QJ07-HWNE40E">浦东QJ07</option>#}
+{#                    <option value="SHPD-QJ08-HWNE40E">浦东QJ08</option>#}
+{#                    <option value="SHCM-QJ09-HWNE40E">崇明QJ09</option>#}
+{#                    <option value="SHCM-QJ10-HWNE40E">崇明QJ10</option>#}
+                    <option value="SHQZ-QJ-CE1">钦州QJ01</option>
+                    <option value="SHQZ-QJ-CE2">钦州QJ02</option>
+                    <option value="SHJQ-QJ-CE3">金桥QJ03</option>
+                    <option value="SHJQ-QJ-CE4">金桥QJ04</option>
+                    <option value="SHWR-QJ-CE5">万荣QJ05</option>
+                    <option value="SHWR-QJ-CE6">万荣QJ06</option>
+                    <option value="SHPD-QJ-CE7">浦东QJ07</option>
+                    <option value="SHPD-QJ-CE8">浦东QJ08</option>
+                    <option value="SHCM-QJ-CE9">崇明QJ09</option>
+                    <option value="SHCM-QJ-CE10">崇明QJ10</option>
+                </select>
+                <input id="btn" type="submit" value="选择"/>
+            </form>
+        </div>
+        <span id="res">正在同步，请稍等…</span>
+        <span id="res2">{{ a }}</span>
+        <div class="right">
+            <button id="tb" onclick="window.location.href='/tongbu/';document.getElementById('res').style.display='inline'">同步告警</button>
+        </div>
+    </div>
+    <div class="roll" id="roll">
+        <table border="1px solid black">
+            <tr>
+                <th width="190px">NE40</th>
+                <th width="50px">Index</th>
+                <th width="100px">Level</th>
+                <th width="170px">Time</th>
+                <th>Info</th>
+            </tr>
+            {% for a in data %}
+            <tr>
+                <td>{{ a.Ne40 }}</td>
+                <td>{{ a.Id }}</td>
+                <td>{{ a.Level }}</td>
+                <td>{{ a.Time|date:"Y-m-d H:i:s" }}</td>
+                <td>{{ a.Info }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+</body>
+</html>

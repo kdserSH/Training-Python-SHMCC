@@ -1,0 +1,23 @@
+
+Info: The max number of VTY users is 10, and the number
+      of current VTY users on line is 1.
+      The current login time is 2018-09-29 21:18:57+00:00.
+----------------------------------------------------------------------------
+Index  Level      Date      Time                        Info
+
+1      Emergency  18-07-31  13:33:03    The optical module worked abnormally.[
+                                        GigabitEthernet2/1/14][OID:1.3.6.1.4.1
+                                        .2011.5.25.219.2.4.5,EntCode:136192]
+2      Emergency  18-07-31  13:24:29    The optical module was removed.[Gigabi
+                                        tEthernet3/1/21][OID:1.3.6.1.4.1.2011.
+                                        5.25.219.2.4.1,EntCode:135680]
+3      Emergency  18-07-31  13:24:18    The optical module was removed.[Gigabi
+                                        tEthernet3/1/20][OID:1.3.6.1.4.1.2011.
+                                        5.25.219.2.4.1,EntCode:135680]
+4      Critical   17-11-15  00:24:58    The air filter inside the chassis was 
+                                        not cleaned.[CHASSIS 1][OID:1.3.6.1.4.
+                                        1.2011.5.25.219.2.1.3,EntCode:131328]
+----------------------------------------------------------------------------
+<SHSH-NGN-QJ07-HWNE40E>
+Info: The max number of VTY users is 10, and the number
+      of current VTY users on line is 0.

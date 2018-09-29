@@ -1,0 +1,138 @@
+*{
+    margin:0;
+    padding:0;
+    font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+}
+html,body{
+    height: 100% ;
+}
+.unroll{
+    position:fixed;
+    background-color:#FFFFFF;
+    width: 100%;
+    clear: both;
+    z-index:100;
+    height: 55px;
+    top: 0;
+    left:0;
+    padding:6px;
+}
+.roll{
+    width: 100%;
+    clear: both;
+    z-index:10;
+    padding-top:70px;
+}
+.timg{
+    float:left;
+    display: inline;
+    padding-left:20px;
+    padding-right:40px;
+}
+.bar1{
+    padding:4px 0;
+    width:600px;
+    float: left;
+    display: inline;
+}
+#btn {
+    box-sizing: border-box;
+    text-align:center;
+    outline:none;
+    border:none;
+    height:30px;
+    cursor:pointer;
+    float:left;
+    display:block;
+    background:#6a6f77;
+    border-radius:0 5px 5px 0;
+    width:80px;
+    top:0;
+    right:0;
+    font-size:15px;
+    font-family:"Microsoft YaHei";
+    color:#F9F0DA;
+    margin-top: 10px;
+}
+#btn:hover{
+    box-shadow:0.5px 0.5px 2px #868b93;
+    background-color:#585c62;
+}
+#btn:active{
+    background-color:#46494e;
+}
+#ne {
+    outline:none;
+    border:2px solid #6a6f77;
+    background:transparent;
+    top:0;
+    right:0;
+    width:420px;
+    height:30px;
+    padding-left:2px;
+    float: left;
+    margin-top: 10px;
+}
+table{
+    border: 2px solid #6a6f77;
+    border-collapse: collapse;
+    width: 100%;
+}
+td{
+    border: 2px solid #6a6f77;
+}
+th{
+    background-color:#999da2;
+    border: 2px solid #6a6f77;
+    color: #F9F0DA;
+}
+.right{
+    float:right;
+    display: inline;
+}
+#tb{
+    margin-right: 10px;
+    margin-top: 15px;
+    box-sizing: border-box;
+    text-align:center;
+    outline:none;
+    border:none;
+    height:30px;
+    cursor:pointer;
+    float:left;
+    display:block;
+    background:#6a6f77;
+    border-radius:5px;
+    width:80px;
+    top:0;
+    right:0;
+    font-size:15px;
+    font-family:"Microsoft YaHei";
+    color:#F9F0DA;
+}
+#tb:hover{
+    box-shadow:0.5px 0.5px 2px #868b93;
+    background-color:#585c62;
+}
+#tb:active{
+    background-color:#46494e;
+}
+#res{
+    color:#c5464a;
+    font-weight:bold;
+    padding:2px 0;
+    float:left;
+    display: none;
+    font-family:"Microsoft YaHei";
+    margin-top: 15px;
+    width: 150px;
+}
+#res2{
+    color:#c5464a;
+    font-weight:bold;
+    padding:2px 0;
+    float:left;
+    font-family:"Microsoft YaHei";
+    margin-top: 15px;
+    /*width: 100px;*/
+}
